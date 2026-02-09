@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SO Hid | Creative Visionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&family=Playfair+Display:ital,wght@0,400;1,700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --accent: #d4af37; /* Luxury Gold */
+        --bg: #050505;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: var(--bg);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #ffffff;
+        cursor: none;
+      }
+      h1, h2, .font-display {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+      }
+      .font-serif { font-family: 'Playfair Display', serif; }
+      .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; opacity: 0.4; }
+      
+      /* Luxury Grain */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      canvas { display: block; touch-action: none; }
+      
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .gold-text {
+        background: linear-gradient(135deg, #fff 30%, #d4af37 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Custom Scrollbar for Luxury Look */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+
+      .cursor-dot {
+        width: 8px; height: 8px; background: #d4af37; border-radius: 50%;
+        position: fixed; pointer-events: none; z-index: 10000;
+        transition: transform 0.1s ease;
+      }
+      .cursor-outline {
+        width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
+        transition: transform 0.2s ease, width 0.3s, height 0.3s;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@^9.5.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
+    "three": "https://esm.sh/three@^0.182.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@^10.7.7"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <div id="root"></div>
+    <script>
+      const dot = document.getElementById('cursor-dot');
+      const outline = document.getElementById('cursor-outline');
+      window.addEventListener('mousemove', (e) => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+        outline.style.left = (e.clientX - 16) + 'px';
+        outline.style.top = (e.clientY - 16) + 'px';
+      });
+    </script>
+  </body>
+</html>
